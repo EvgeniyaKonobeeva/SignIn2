@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Регистрация</string>
+    <string name="action_settings">Settings</string>
+    <string name="password_field">Пароль (минимум 5 символов)</string>
+    <string name="email_filed">E-mail</string>
+    <string name="email_error_field">E-mail введен не верно</string>
+    <string name="password_error">Слишком короткий пароль</string>
+    <string name="repeate_password">Повторите пароль</string>
+    <string name="socialSites">Регистрация через социальные сети</string>
+    <string name="ConfederationPolicy">Регистрируясь, вы принимаете условия</string>
+    <string name="ConfederationPolicy2"><b>Политики конфеденциальности</b></string>
+</resources>
