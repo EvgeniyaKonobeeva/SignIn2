@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#0ca18d</color>
+    <color name="colorPrimaryDark">#329f30</color>
+    <color name="colorAccent">#ccb779</color>
+    <color name="colorNormal">#7b1717</color>
+    <color name="appBackground">#e6e6e6</color>
 
-
+    <!--textView labels-->
     <color name="myTextColor">#c9c9c9</color>
     <color name="buttonColor">#646464</color>
-    <color name="ToolBarColor">#c9c9c9</color>
+
+    <!--edit text nonfocused state-->
+    <color name="editNonFocused">#cb00d2</color>
+
+    <!--toolBar-->
+    <color name="ToolBarBackgroundColor">#d6d4d4</color>
+    <color name="toolBarTextColor">#303030</color>
+
+
     <color name="errorColor">#da4040</color>
+    <color name="editTextNormalColor">#a1a1a1</color>
+    <color name="black">#000000</color>
 </resources>

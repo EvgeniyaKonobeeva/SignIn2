@@ -9,4 +9,9 @@
     <string name="socialSites">Регистрация через социальные сети</string>
     <string name="ConfederationPolicy">Регистрируясь, вы принимаете условия</string>
     <string name="ConfederationPolicy2"><b>Политики конфеденциальности</b></string>
+    <string name="errorPassword">пароль слишком короткий</string>
+    <string name="errorRepeatPassword">неверный пароль</string>
+
+    <string name="onClose">closed</string>
+    <string name="onOpen">opened</string>
 </resources>

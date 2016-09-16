@@ -19,40 +19,41 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
         <TextView
-            android:id="@+id/emailLabel"
+            android:id="@+id/email_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#00000000"
             android:text="E-mail"/>
 
         <EditText
-            android:id="@+id/email_Field"
+            android:id="@+id/email_field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:ems="20" />
         <TextView
-            android:id="@+id/Email_ErrorMessage"
+            android:id="@+id/email_error_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/email_error_field"
             android:textColor="@color/errorColor"/>
         <TextView
-            android:id="@+id/password_Label"
+            android:id="@+id/password_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/password_field" />
         <EditText
-            android:id="@+id/Password_Field"
+            android:id="@+id/password_field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="20" />
-
         <TextView
-            android:id="@+id/Password_ErrorMessage"
+            android:id="@+id/password_error_message"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@string/errorPassword"
+            android:textColor="@color/errorColor"/>
 
     </LinearLayout>
 
@@ -63,18 +64,25 @@
         android:layout_weight="1">
 
         <EditText
-            android:id="@+id/secPasswordField"
+            android:id="@+id/repeat_password_field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="20"
             android:hint="@string/repeate_password"/>
+        <TextView
+            android:id="@+id/repeat_password_error_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/errorRepeatPassword"
+            android:textColor="@color/errorColor"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Регистрация"
             android:textColor="@color/buttonColor"
-            android:id="@+id/registrate_button"
+            android:id="@+id/check_in_button"
+            android:enabled="false"
             android:layout_marginTop="20dp"/>
     </LinearLayout>
 
@@ -85,31 +93,37 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal|top">
             <TextView
-                android:id="@+id/socialSites"
+                android:id="@+id/social_sites"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/socialSites"
-                android:gravity="center" />
+                android:gravity="center"
+                android:layout_weight="1"/>
             <LinearLayout
+                android:id="@+id/lll"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="vkontakte"
                     android:textColor="@color/buttonColor"
                     android:id="@+id/vkButton"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:gravity="center"/>
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="facebook"
                     android:textColor="@color/buttonColor"
                     android:id="@+id/facebookButton"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:gravity="center"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -123,8 +137,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/ConfederationPolicy"
-                android:gravity="center"
-                android:layout_gravity="center_horizontal|bottom" />
+                android:gravity="center" />
             <TextView
                 android:id="@+id/ConfederationPolicy"
                 android:layout_width="match_parent"

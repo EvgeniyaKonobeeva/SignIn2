@@ -4,7 +4,22 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowFullscreen">true</item>
         <item name="android:textColor">@color/myTextColor</item>
     </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorSecondary">@color/toolBarTextColor</item>
+        <item name="android:background">@color/appBackground</item>
+        <item name="android:colorForeground">@color/accent_material_dark</item>
+        <item name="android:navigationBarColor">@color/black</item>
+        <item name="android:statusBarColor">@color/abc_tint_btn_checkable</item>
+        <item name="android:windowBackground">@drawable/abc_ic_ab_back_material</item>
+    </style>
+
+
 </resources>
