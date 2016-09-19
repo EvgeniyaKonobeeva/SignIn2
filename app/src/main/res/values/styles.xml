@@ -16,10 +16,15 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
 <!--appBar-->
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="appBarL">
+        <item name="colorPrimary">@color/appBarColor</item>
+    </style>
 
 <!--toolbar-->
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"></style>
@@ -28,6 +33,10 @@
         <item name="android:textColorPrimary">@color/toolBarTextColor</item>
         <item name="android:background">@color/ToolBarBackgroundColor</item>
 
+    </style>
+
+    <style name="buttonStyle">
+        <item name="android:background">@drawable/cut_shadow</item>
     </style>
 
 

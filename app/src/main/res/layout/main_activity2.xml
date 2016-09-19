@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.ekonobeeva.signin2.MainActivity">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/FrameL"
+        android:layout_marginTop="-15dp">
+        <include layout="@layout/content_main" />
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/FrameL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cut_shadow"
+        android:theme="@style/ToolBarStyle">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/ToolBarStyle">
+        </android.support.v7.widget.Toolbar>
+    </FrameLayout>
+
+        <!--android:background="@drawable/shadow_171024"/>-->
+
+</RelativeLayout>
