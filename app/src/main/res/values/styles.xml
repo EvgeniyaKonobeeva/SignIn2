@@ -23,7 +23,7 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="appBarL">
-        <item name="colorPrimary">@color/appBarColor</item>
+        <item name="colorPrimary">@color/appBarPrimaryColor</item>
     </style>
 
 <!--toolbar-->

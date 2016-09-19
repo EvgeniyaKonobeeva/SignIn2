@@ -177,4 +177,6 @@ public class MainActivity extends AppCompatActivity {
         emailField.setOnFocusChangeListener(new EmailFieldFocusChangedListener(EMAIL));
         setFieldColor(emailField,  R.color.editTextNormalColor);
     }
+
+
 }

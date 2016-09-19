@@ -22,6 +22,6 @@
     <color name="editTextNormalColor">#a1a1a1</color>
     <color name="statusBarColor">#000000</color>
 
-    <color name="appBarColor">#00ffffff</color>
+    <color name="appBarPrimaryColor">#00ffffff</color>
 
 </resources>

@@ -76,7 +76,7 @@
             android:text="Регистрация"
             android:textColor="@color/buttonColor"
             android:id="@+id/check_in_button"
-            style="@style/buttonStyle"
+            android:background="@drawable/button_custom"
             android:enabled="false"
             android:layout_marginTop="10dp"/>
     </LinearLayout>
@@ -108,6 +108,7 @@
                     android:textColor="@color/buttonColor"
                     android:id="@+id/vkButton"
                     android:layout_weight="1"
+                    android:background="@drawable/button_custom"
                     android:gravity="center"
                     style="@style/buttonStyle"/>
                 <Button
@@ -116,6 +117,7 @@
                     android:text="facebook"
                     android:textColor="@color/buttonColor"
                     android:id="@+id/facebookButton"
+                    android:background="@drawable/button_custom"
                     android:layout_weight="1"
                     android:gravity="center"
                     style="@style/buttonStyle"/>
