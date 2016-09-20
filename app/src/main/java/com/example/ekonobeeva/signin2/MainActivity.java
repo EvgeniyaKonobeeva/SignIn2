@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
     public final static int PASSWORD = 0;
     public final static int EMAIL = 1;
-    public final static int REPEAT_PASSWORD = 2;
     private TextView emailError;
     private EditText passwordField;
     private EditText repeatPasswordField;
@@ -48,19 +47,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public boolean isEmailCorrect(String text){
+    public boolean isEmailCorrect(){
         String regExEmail = "\\w+@\\w+\\.\\w+";
-        if(text.matches(regExEmail)){
-            Log.d(TAG, "correct " + text);
+        if(emailField.getText().toString().matches(regExEmail)){
             passwordField.setEnabled(true);
             return true;
         }
-        //passwordField.setEnabled(false);
         return false;
     }
 
-    public boolean isPasswordCorrect(String text){
-        if(text.length() < 4){
+    public boolean isPasswordCorrect(){
+        if(passwordField.getText().length() < 4){
             repeatPasswordField.setEnabled(false);
             return false;
         }
@@ -68,16 +65,20 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public boolean isRepeatPasswordCorrect(String password, String repeatPassword){
+    public boolean isRepeatPasswordCorrect(){
+        String repeatPassword = repeatPasswordField.getText().toString();
+        String password = passwordField.getText().toString();
         if(password.equals(repeatPassword)){
-            checkInBut.setEnabled(true);
+            if(isEmailCorrect() && isPasswordCorrect()) {
+                checkInBut.setEnabled(true);
+            }
             return true;
         }
         checkInBut.setEnabled(false);
         return false;
     }
 
-    public void setFieldColor(View view, int id){
+    public void setEditTextUnderlineColor(View view, int id){
         int color = ContextCompat.getColor(getApplicationContext(), id);
         int blue = Color.blue(color);
         int green = Color.green(color);
@@ -89,14 +90,13 @@ public class MainActivity extends AppCompatActivity {
         view.setBackground(drawable);
     }
 
-    public class EmailFieldFocusChangedListener implements View.OnFocusChangeListener{
+    public class MyFocusChangedListener implements View.OnFocusChangeListener{
         int flag;
-        EmailFieldFocusChangedListener(int flag){
+        MyFocusChangedListener(int flag){
             this.flag = flag;
         }
         @Override
         public void onFocusChange(View view, boolean hasFocus) {
-            Log.d(TAG, "onFocusChange");
             setField(flag, hasFocus);
         }
     }
@@ -104,29 +104,33 @@ public class MainActivity extends AppCompatActivity {
     public void setField(int flag, boolean hasFocus){
         switch (flag){
             case PASSWORD :
+                Log.d(TAG, "onFocusChange password");
                 if(!hasFocus){
-                    if (isPasswordCorrect(passwordField.getText().toString())) {
-                        errorPassword.setVisibility(View.INVISIBLE);
-                        setFieldColor(passwordField,  R.color.editTextNormalColor);
+                    if (isPasswordCorrect()) {
+                        errorPassword.setVisibility(View.GONE);
+                        setEditTextUnderlineColor(passwordField,  R.color.editTextNormalColor);
                     } else {
                         errorPassword.setVisibility(View.VISIBLE);
-                        setFieldColor(passwordField, R.color.errorColor);
+                        setEditTextUnderlineColor(passwordField, R.color.errorColor);
                     }
                 }else {
-                    setFieldColor(passwordField, R.color.colorAccent);
+                    setEditTextUnderlineColor(passwordField, R.color.colorAccent);
+                    errorPassword.setVisibility(View.GONE);
                 }
                 break;
             case EMAIL :
+                Log.d(TAG, "onFocusChange email");
                 if(!hasFocus){
-                    if (isEmailCorrect(emailField.getText().toString())) {
-                        emailError.setVisibility(View.INVISIBLE);
-                        setFieldColor(emailField,  R.color.editTextNormalColor);
+                    if (isEmailCorrect()) {
+                        emailError.setVisibility(View.GONE);
+                        setEditTextUnderlineColor(emailField,  R.color.editTextNormalColor);
                     } else {
                         emailError.setVisibility(View.VISIBLE);
-                        setFieldColor(emailField, R.color.errorColor);
+                        setEditTextUnderlineColor(emailField, R.color.errorColor);
                     }
                 }else {
-                    setFieldColor(emailField, R.color.colorAccent);
+                    setEditTextUnderlineColor(emailField, R.color.colorAccent);
+                    emailError.setVisibility(View.GONE);
                 }
                 break;
         }
@@ -136,15 +140,38 @@ public class MainActivity extends AppCompatActivity {
     public void initPasswordField(){
         passwordField = (EditText)findViewById(R.id.password_field);
         errorPassword = (TextView)findViewById(R.id.password_error_message);
-        errorPassword.setVisibility(View.INVISIBLE);
-        passwordField.setOnFocusChangeListener(new EmailFieldFocusChangedListener(PASSWORD));
-        setFieldColor(passwordField,  R.color.editTextNormalColor);
+        errorPassword.setVisibility(View.GONE);
+        passwordField.setOnFocusChangeListener(new MyFocusChangedListener(PASSWORD));
+        passwordField.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (isPasswordCorrect()) {
+                    errorPassword.setVisibility(View.GONE);
+                    setEditTextUnderlineColor(passwordField,  R.color.colorAccent);
+                } else {
+                    errorPassword.setVisibility(View.VISIBLE);
+                    setEditTextUnderlineColor(passwordField, R.color.errorColor);
+                }
+            }
+        });
+        setEditTextUnderlineColor(passwordField,  R.color.editTextNormalColor);
     }
 
     public void initRepeatPasswordField(){
         repeatPasswordField = (EditText)findViewById(R.id.repeat_password_field);
         errorRepeatPassword = (TextView)findViewById(R.id.repeat_password_error_message);
-        errorRepeatPassword.setVisibility(View.INVISIBLE);
+        errorRepeatPassword.setVisibility(View.GONE);
+        setEditTextUnderlineColor(repeatPasswordField, R.color.editTextNormalColor);
         repeatPasswordField.setEnabled(false);
         repeatPasswordField.addTextChangedListener(new TextWatcher() {
             @Override
@@ -159,12 +186,23 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (isRepeatPasswordCorrect(passwordField.getText().toString(), repeatPasswordField.getText().toString())) {
-                    errorRepeatPassword.setVisibility(View.INVISIBLE);
-                    setFieldColor(repeatPasswordField,  R.color.colorAccent);
+                if (isRepeatPasswordCorrect()) {
+                    errorRepeatPassword.setVisibility(View.GONE);
+                    setEditTextUnderlineColor(repeatPasswordField,  R.color.colorAccent);
                 } else {
                     errorRepeatPassword.setVisibility(View.VISIBLE);
-                    setFieldColor(repeatPasswordField, R.color.errorColor);
+                    setEditTextUnderlineColor(repeatPasswordField, R.color.errorColor);
+                }
+            }
+        });
+        repeatPasswordField.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if(hasFocus){
+                    setEditTextUnderlineColor(repeatPasswordField, R.color.colorAccent);
+                }else{
+                    if(isRepeatPasswordCorrect())
+                        setEditTextUnderlineColor(repeatPasswordField, R.color.editTextNormalColor);
                 }
             }
         });
@@ -172,11 +210,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void initEmailField(){
         emailError = (TextView) findViewById(R.id.email_error_message);
-        emailError.setVisibility(View.INVISIBLE);
+        emailError.setVisibility(View.GONE);
         emailField = (EditText)findViewById(R.id.email_field);
-        emailField.setOnFocusChangeListener(new EmailFieldFocusChangedListener(EMAIL));
-        setFieldColor(emailField,  R.color.editTextNormalColor);
+        emailField.setOnFocusChangeListener(new MyFocusChangedListener(EMAIL));
+        setEditTextUnderlineColor(emailField,  R.color.editTextNormalColor);
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

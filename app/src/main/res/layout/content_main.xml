@@ -73,7 +73,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Регистрация"
+            android:text="Зарегистрироваться"
+            android:drawableLeft="@android:drawable/star_off"
             android:textColor="@color/buttonColor"
             android:id="@+id/check_in_button"
             android:background="@drawable/button_custom"
@@ -105,22 +106,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="vkontakte"
+                    android:drawableLeft="@android:drawable/star_off"
                     android:textColor="@color/buttonColor"
                     android:id="@+id/vkButton"
                     android:layout_weight="1"
                     android:background="@drawable/button_custom"
-                    android:gravity="center"
-                    style="@style/buttonStyle"/>
+                    android:gravity="center" />
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="facebook"
+                    android:drawableLeft="@android:drawable/star_off"
                     android:textColor="@color/buttonColor"
                     android:id="@+id/facebookButton"
                     android:background="@drawable/button_custom"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    style="@style/buttonStyle"/>
+                    android:gravity="center" />
             </LinearLayout>
         </LinearLayout>
 

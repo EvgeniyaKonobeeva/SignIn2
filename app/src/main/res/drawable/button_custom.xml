@@ -4,5 +4,7 @@
         android:state_pressed="true" />
     <item android:drawable="@drawable/button_unpressed_colored3"
         android:state_focused="true" />
-    <item android:drawable="@drawable/colored_not_enabled_colored3" />
+    <item android:drawable="@drawable/colored_not_enabled_colored3"
+        android:state_enabled="false"/>
+    <item android:drawable="@drawable/button_unpressed_colored3" />
 </selector>
